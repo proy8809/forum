@@ -12,10 +12,11 @@
         {% endblock %}
     </head>
     <body class="text-sm bg-slate-800 flex justify-center w-full">
-    <div class="border h-auto min-h-screen w-1/2 max-w-2/3">
-        <main class="bg-white px-6 py-8 h-auto min-h-[95vh]">
-            {% block body %}{% endblock %}
-        </main>
-    </div>
+        <div class="border bg-white min-h-screen w-1/2 max-w-2/3 flex flex-col">
+            {% include "_header.html.twig" %}
+            <main class="px-6 py-8 h-auto flex-1">
+                {% block body %}{% endblock %}
+            </main>
+        </div>
     </body>
 </html>
