@@ -1,3 +1,65 @@
 <div{{ attributes }}>
-    <!-- component html -->
+    <h1 class="text-3xl mb-4">Registration</h1>
+
+    <form>
+        <div class="mb-2">
+            <label for="username">Username</label>
+            <input type="text"
+                   id="username"
+                   data-model="norender|username"
+            />
+            {% if _errors.has('username') %}
+                <p class="validation-error">{{ _errors.get('username') }}</p>
+            {% endif %}
+        </div>
+
+        <div class="mb-2">
+            <label for="first_name">First Name</label>
+            <input type="text"
+                   id="first_name"
+                   data-model="norender|firstName"
+            />
+            {% if _errors.has('firstName') %}
+                <p class="validation-error">{{ _errors.get('firstName') }}</p>
+            {% endif %}
+        </div>
+
+        <div class="mb-2">
+            <label for="last_name">Last Name</label>
+            <input type="text"
+                   id="last_name"
+                   data-model="norender|lastName"
+            />
+            {% if _errors.has('lastName') %}
+                <p class="validation-error">{{ _errors.get('lastName') }}</p>
+            {% endif %}
+        </div>
+
+        <div class="mb-2">
+            <label for="password">Password</label>
+            <input type="password"
+                   id="password"
+                   data-model="norender|password"
+            />
+            {% if _errors.has('password') %}
+                <p class="validation-error">{{ _errors.get('password') }}</p>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="password_confirmation">Password Confirmation</label>
+            <input type="password"
+                   id="password_confirmation"
+                   data-model="norender|passwordConfirmation"
+            />
+            {% if _errors.has('passwordConfirmation') %}
+                <p class="validation-error">{{ _errors.get('passwordConfirmation') }}</p>
+            {% endif %}
+        </div>
+
+        <div class="text-right mt-4">
+            <button type="button" class="btn primary" data-action="live#action" data-live-action-param="submit">Register to the forum</button>
+        </div>
+
+    </form>
 </div>
