@@ -10,12 +10,24 @@
     @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300;
 }
 
+.btn.primary:disabled {
+    @apply bg-blue-700/50;
+}
+
 .btn.secondary {
-    @apply text-white bg-blue-700/50 hover:bg-blue-800/50 focus:ring-4 focus:ring-blue-300/50;
+    @apply text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:ring-slate-300;
+}
+
+.btn.secondary:disabled {
+    @apply bg-slate-700/50;
 }
 
 .btn.danger {
     @apply text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 focus:outline-none;
+}
+
+.btn.danger:disabled {
+    @apply bg-red-700/50;
 }
 
 .alert {
@@ -24,6 +36,10 @@
 
 .alert.primary {
     @apply text-blue-800 bg-blue-50;
+}
+
+.alert.success {
+    @apply text-green-800 bg-green-50;
 }
 
 .alert.secondary {

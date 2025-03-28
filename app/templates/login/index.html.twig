@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login to access the forum!{% endblock %}
+
+{% block body %}
+    <section>
+        {% if app.session.flashbag.peek('success')|length > 0 %}
+            <div class="alert success">
+                {% for message in app.flashes('success') %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <div class="alert danger">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+        {% endif %}
+
+        <h1 class="text-3xl mb-4">Login</h1>
+
+        {% include "login/_login-form.html.twig" %}
+    </section>
+{% endblock %}
+

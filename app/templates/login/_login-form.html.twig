@@ -1,0 +1,20 @@
+<form action="{{ path('login_index') }}" method="post">
+    <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+    <input type="hidden" name="_target_path" value="{{ path("forum_index") }}">
+
+    <div class="mb-2">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="_username" data-login-form-target="username" />
+    </div>
+
+    <div class="mb-2">
+        <label for="password">Password</label>
+        <input type="password"  id="password" name="_password" data-login-form-target="password" />
+    </div>
+
+    <div class="text-right mt-2">
+        <button type="submit" class="btn primary">
+            Login to the forum
+        </button>
+    </div>
+</form>
