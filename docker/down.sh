@@ -1,0 +1,1 @@
+docker compose -p forum-application down -t 0
