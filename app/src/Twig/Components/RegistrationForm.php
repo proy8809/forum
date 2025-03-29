@@ -20,6 +20,7 @@ final class RegistrationForm extends AbstractController
     use ValidatableComponentTrait;
 
     #[LiveProp(writable: true)]
+    #[Assert\NotBlank(message: "Username can't be empty")]
     #[Assert\Length(min: 8, minMessage: "Username must be at least 8 characters long")]
     public string $username = "";
 
@@ -32,10 +33,12 @@ final class RegistrationForm extends AbstractController
     public string $lastName = "";
 
     #[LiveProp(writable: true)]
+    #[Assert\NotBlank(message: "Password can't be empty")]
     #[Assert\Length(min: 8, minMessage: "Password must be at least 8 characters long")]
     public string $password = "";
 
     #[LiveProp(writable: true)]
+    #[Assert\NotBlank(message: "Password confirmation can't be empty")]
     #[Assert\IdenticalTo(propertyPath: "password", message: "Passwords don't match")]
     public string $passwordConfirmation = "";
 
@@ -43,11 +46,6 @@ final class RegistrationForm extends AbstractController
         private readonly UserFactory $userFactory,
         private readonly UserRepository $userRepository,
     ) {
-    }
-
-    public function getIsRegisterButtonDisabled(): bool
-    {
-        return !empty($this->getValidator()->validate($this));
     }
 
     #[LiveAction]

@@ -1,11 +1,13 @@
 <div{{ attributes }}>
     <h1 class="text-3xl mb-6">Registration</h1>
-    <form>
+    <form data-controller="registration-form">
         <div class="mb-4">
             <label for="username">Username</label>
             <input type="text"
                    id="username"
-                   data-model="on(change)|username"
+                   data-model="norender|username"
+                   data-registration-form-target="username"
+                   data-action="keydown->registration-form#keydown"
             />
             {% if _errors.has('username') %}
                 <p class="validation-error">{{ _errors.get('username') }}</p>
@@ -16,7 +18,9 @@
             <label for="first_name">First Name</label>
             <input type="text"
                    id="first_name"
-                   data-model="on(change)|firstName"
+                   data-model="norender|firstName"
+                   data-registration-form-target="firstName"
+                   data-action="keydown->registration-form#keydown"
             />
             {% if _errors.has('firstName') %}
                 <p class="validation-error">{{ _errors.get('firstName') }}</p>
@@ -27,7 +31,9 @@
             <label for="last_name">Last Name</label>
             <input type="text"
                    id="last_name"
-                   data-model="on(change)|lastName"
+                   data-model="norender|lastName"
+                   data-registration-form-target="lastName"
+                   data-action="keydown->registration-form#keydown"
             />
             {% if _errors.has('lastName') %}
                 <p class="validation-error">{{ _errors.get('lastName') }}</p>
@@ -38,7 +44,9 @@
             <label for="password">Password</label>
             <input type="password"
                    id="password"
-                   data-model="on(change)|password"
+                   data-model="norender|password"
+                   data-registration-form-target="password"
+                   data-action="keydown->registration-form#keydown"
             />
             {% if _errors.has('password') %}
                 <p class="validation-error">{{ _errors.get('password') }}</p>
@@ -49,7 +57,9 @@
             <label for="password_confirmation">Password Confirmation</label>
             <input type="password"
                    id="password_confirmation"
-                   data-model="on(change)|passwordConfirmation"
+                   data-model="norender|passwordConfirmation"
+                   data-registration-form-target="passwordConfirmation"
+                   data-action="keydown->registration-form#keydown"
             />
             {% if _errors.has('passwordConfirmation') %}
                 <p class="validation-error">{{ _errors.get('passwordConfirmation') }}</p>
@@ -61,7 +71,8 @@
                     class="btn primary"
                     data-action="live#action"
                     data-live-action-param="submit"
-                    {{ this.isRegisterButtonDisabled ? "disabled" : "" }}
+                    data-registration-form-target="button"
+                    disabled
             >
                 Register to the forum
             </button>
