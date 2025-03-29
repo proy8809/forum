@@ -12,6 +12,10 @@ final class LoginController extends AbstractController
     #[Route('/login', name: 'login_index')]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('forum_index');
+        }
+
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 

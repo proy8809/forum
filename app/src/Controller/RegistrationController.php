@@ -11,6 +11,10 @@ final class RegistrationController extends AbstractController
     #[Route('/registration', name: 'registration_index')]
     public function index(): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('forum_index');
+        }
+
         return $this->render('registration/index.html.twig');
     }
 }

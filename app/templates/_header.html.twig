@@ -1,8 +1,15 @@
-<nav class="bg-white px-6 py-2 h-[5vh] border-b shadow-md flex justify-end gap-2 items-center">
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <a href="{{ path("_logout_main") }}">Logout</a>
-    {% else %}
-        <a href="{{ path("registration_index") }}">Registration</a>
-        <a href="{{ path("login_index") }}">Login</a>
-    {% endif %}
+<nav class="bg-white px-6 py-2 h-[5vh] border-b shadow-md flex justify-between items-center">
+    <div>
+        {% if app.user %}
+            Welcome, {{ app.user.firstName }} {{ app.user.lastName }}
+        {% endif %}
+    </div>
+    <div class="flex gap-2">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a href="{{ path("_logout_main") }}">Logout</a>
+        {% else %}
+            <a href="{{ path("registration_index") }}">Registration</a>
+            <a href="{{ path("login_index") }}">Login</a>
+        {% endif %}
+    </div>
 </nav>
