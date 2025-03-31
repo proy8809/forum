@@ -1,0 +1,16 @@
+App\Entity\Thread:
+    properties:
+        title:
+            - NotBlank:
+                  message: "Title must be filled"
+            - Length:
+                  min: 8
+                  max: 64
+                  minMessage: "Title must be at least 8 characters long"
+                  maxMessage: "Title must be at least 64 characters long"
+        content:
+            -   NotBlank:
+                    message: "Content must be filled"
+            -   Length:
+                    min: 8
+                    minMessage: "Content must be at least 8 characters long"

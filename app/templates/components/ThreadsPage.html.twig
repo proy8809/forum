@@ -1,0 +1,12 @@
+<div{{ attributes }}>
+    <div class="flex justify-end gap-1 items-center">
+        <button class="btn primary"
+                data-action="live#emit"
+                data-live-event-param="name(ThreadFormModal)|modalShown"
+        >
+            New Thread
+        </button>
+    </div>
+
+    <twig:ThreadFormModal />
+</div>

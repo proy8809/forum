@@ -16,6 +16,14 @@ class ThreadRepository extends ServiceEntityRepository
         parent::__construct($registry, Thread::class);
     }
 
+    public function persist(Thread $thread): Thread {
+        $em = $this->getEntityManager();
+        $em->persist($thread);
+        $em->flush();
+
+        return $thread;
+    }
+
     //    /**
     //     * @return Thread[] Returns an array of Thread objects
     //     */
